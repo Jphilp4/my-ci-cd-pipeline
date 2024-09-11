@@ -24,7 +24,7 @@ jobs:
         flake8 .
     - name: Security scan with Bandit
       run: |
-        bandit -r .
+        bandit -r . -c .bandit
     - name: Test with pytest
       run: |
         PYTHONPATH=. pytest
