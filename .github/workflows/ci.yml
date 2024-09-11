@@ -24,7 +24,9 @@ jobs:
         flake8 .
     - name: Security scan with Bandit
       run: |
-        bandit -r . -c .bandit
+        bandit -r . -f custom --msg-template "{abspath}:{line}: {severity}: {test_id}: {msg}" -c .bandit
+
+
     - name: Test with pytest
       run: |
         PYTHONPATH=. pytest
