@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -22,76 +21,13 @@ jobs:
         pip install -r requirements.txt
     - name: Lint with flake8
       run: |
-        flake8 .  # Run flake8 on the current directory
+        flake8 .
     - name: Security scan with Bandit
       run: |
-        bandit -r .  # Run Bandit on the current directory
+        bandit -r .
     - name: Test with pytest
       run: |
         PYTHONPATH=. pytest
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   mock-deploy:
     needs: build-and-test

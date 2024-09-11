@@ -1,22 +1,24 @@
-import pytest
 from app.app import app
 
-@pytest.fixture
-def client():
-    with app.test_client() as client:
-        yield client
 
-def test_hello_world(client):
-    response = client.get('/')
+def test_hello():
+    response = app.test_client().get('/')
+    assert response.status_code == 200
     assert response.data == b'Hello, World!'
-    assert response.status_code == 200
 
-def test_about(client):
-    response = client.get('/about')
-    assert response.data == b'About this app'
-    assert response.status_code == 200
 
-def test_add(client):
-    response = client.get('/add/2/3')
-    assert response.data == b'5'
+def test_name():
+    response = app.test_client().get('/name/John')
     assert response.status_code == 200
+    assert response.data == b'Hello, John!'
+
+
+def test_age():
+    response = app.test_client().get('/age/25')
+    assert response.status_code == 200
+    assert response.data == b'You are 25 years old.'
+
+
+def test_404():
+    response = app.test_client().get('/nonexistent')
+    assert response.status_code == 404
