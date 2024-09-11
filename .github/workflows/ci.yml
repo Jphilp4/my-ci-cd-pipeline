@@ -23,10 +23,12 @@ jobs:
     - name: Lint with flake8
       run: |
         flake8 .  # Run flake8 on the current directory
+    - name: Security scan with Bandit
+      run: |
+        bandit -r .  # Run Bandit on the current directory
     - name: Test with pytest
       run: |
         PYTHONPATH=. pytest
-
 
 
 
