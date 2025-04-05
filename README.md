@@ -78,11 +78,3 @@ Created and maintained a `requirements.txt` to keep dependencies consistent acro
 - Gained confidence in Python project structure and automation  
 
 ---
-
-## 🔮 Next Steps  
-
-- Add more features and tests to the Flask app  
-- Enhance CI pipeline with linting and code coverage tools  
-- Explore deployment options and integrate them into the pipeline  
-- Improve documentation, including visuals and CI info in the README  
-- Enable branch protection rules for automated quality enforcement
